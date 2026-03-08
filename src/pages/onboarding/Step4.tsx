@@ -148,7 +148,10 @@ export default function Step4() {
         <Button
           type="button"
           variant="outline"
-          onClick={() => setStep(3)}
+          onClick={() => {
+            setStep(3);
+            navigate("/onboarding/3");
+          }}
           className="cursor-pointer"
         >
           Back
