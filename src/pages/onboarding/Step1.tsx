@@ -188,7 +188,10 @@ export default function Step1() {
       </div>
 
       <div className="flex justify-end mt-8">
-        <Button type="submit" className="cursor-pointer">
+        <Button
+          type="submit"
+          className="bg-[#004208] hover:bg-[#005a0a] text-white cursor-pointer"
+        >
           Continue
         </Button>
       </div>

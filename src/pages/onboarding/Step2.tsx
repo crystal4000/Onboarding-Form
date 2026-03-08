@@ -268,7 +268,10 @@ export default function Step2() {
         >
           Back
         </Button>
-        <Button type="submit" className="cursor-pointer">
+        <Button
+          type="submit"
+          className="bg-[#004208] hover:bg-[#005a0a] text-white cursor-pointer"
+        >
           Continue
         </Button>
       </div>

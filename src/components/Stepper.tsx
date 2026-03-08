@@ -23,10 +23,10 @@ export default function Stepper({ steps }: { steps: Step[] }) {
               <div
                 className={cn(
                   "w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium border-2 transition-colors shrink-0",
-                  isCompleted && "bg-indigo-600 border-indigo-600 text-white",
+                  isCompleted && "bg-[#004208] border-[#004208] text-white",
                   isActive &&
                     !isCompleted &&
-                    "border-indigo-600 text-indigo-600 bg-white",
+                    "border-[#004208] text-[#004208] bg-white",
                   !isActive &&
                     !isCompleted &&
                     "border-slate-300 text-slate-400 bg-white",
@@ -37,7 +37,7 @@ export default function Stepper({ steps }: { steps: Step[] }) {
               <span
                 className={cn(
                   "hidden sm:block text-xs font-medium mt-1 text-center w-16",
-                  isActive ? "text-indigo-600" : "text-slate-400",
+                  isActive ? "text-[#004208]" : "text-slate-400",
                 )}
               >
                 {step.label}
@@ -47,7 +47,7 @@ export default function Stepper({ steps }: { steps: Step[] }) {
               <div
                 className={cn(
                   "h-0.5 w-12 sm:w-20 mx-1 mt-[18px] shrink-0 transition-colors",
-                  isCompleted ? "bg-indigo-600" : "bg-slate-200",
+                  isCompleted ? "bg-[#004208]" : "bg-slate-200",
                 )}
               />
             )}

@@ -47,7 +47,7 @@ function Section({
             setStep(step);
             navigate(`/onboarding/${step}`);
           }}
-          className="text-xs text-indigo-600 hover:underline font-medium"
+          className="text-xs cursor-pointer text-[#005a0a] hover:underline font-medium"
         >
           Edit
         </button>
@@ -160,7 +160,7 @@ export default function Step4() {
           type="button"
           onClick={handleSubmit}
           disabled={loading}
-          className="cursor-pointer"
+          className="bg-[#004208] hover:bg-[#005a0a] text-white cursor-pointer"
         >
           {loading ? "Submitting..." : "Submit"}
         </Button>
