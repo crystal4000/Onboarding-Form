@@ -11,10 +11,10 @@ export const step1Schema = z.object({
 export const step2Schema = z
   .object({
     purchaseType: z.enum(["cash", "financing"], {
-      message: "Please select a purchase type",
+      error: "Please select a purchase type",
     }),
     vehicleType: z.enum(["ev", "hybrid", "gas", "unsure"], {
-      message: "Please select a vehicle type",
+      error: "Please select a vehicle type",
     }),
     budgetMin: z.coerce.number().min(1, { error: "Budget minimum is required" }),
     budgetMax: z.coerce.number().min(1, { error: "Budget maximum is required" }),
@@ -34,7 +34,7 @@ export const step2Schema = z
 export const step3Schema = z
   .object({
     contactMethod: z.enum(["email", "phone", "whatsapp"], {
-      message: "Please select a contact method",
+      error: "Please select a contact method",
     }),
     addressLine1: z.string().min(1, { error: "Address is required" }),
     city: z.string().min(1, { error: "City is required" }),
