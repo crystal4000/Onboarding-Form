@@ -4,6 +4,7 @@ import Step1 from "@/pages/onboarding/Step1";
 import Step2 from "@/pages/onboarding/Step2";
 import Step3 from "@/pages/onboarding/Step3";
 import Step4 from "@/pages/onboarding/Step4";
+import Success from "@/pages/Success";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="3" element={<Step3 />} />
           <Route path="4" element={<Step4 />} />
         </Route>
+        <Route path="/success" element={<Success />} />
         <Route path="*" element={<Navigate to="/onboarding/1" replace />} />
       </Routes>
     </BrowserRouter>

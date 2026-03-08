@@ -57,50 +57,19 @@ function Section({
   );
 }
 
-function SuccessScreen() {
-  return (
-    <div className="flex flex-col items-center justify-center py-12 text-center">
-      <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mb-4">
-        <svg
-          className="w-8 h-8 text-white"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-      </div>
-      <h2 className="text-xl font-semibold text-slate-900 mb-2">
-        You're all set!
-      </h2>
-      <p className="text-slate-500 text-sm max-w-sm">
-        Thanks for completing the onboarding. We'll be in touch shortly based on
-        your preferences.
-      </p>
-    </div>
-  );
-}
-
 export default function Step4() {
   const { formData, setStep, resetForm } = useFormStore();
   const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     setLoading(true);
     // simulate API call
     await new Promise((resolve) => setTimeout(resolve, 2000));
     setLoading(false);
-    setSubmitted(true);
     resetForm();
+    navigate("/success");
   };
-
-  if (submitted) return <SuccessScreen />;
 
   const formatBudget = (val?: number) =>
     val ? `$${val.toLocaleString()}` : undefined;
