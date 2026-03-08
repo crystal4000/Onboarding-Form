@@ -260,6 +260,7 @@ export default function Step2() {
         <Button
           type="button"
           variant="outline"
+          className="cursor-pointer"
           onClick={() => {
             setStep(1);
             navigate("/onboarding/1");
@@ -267,7 +268,9 @@ export default function Step2() {
         >
           Back
         </Button>
-        <Button type="submit">Continue</Button>
+        <Button type="submit" className="cursor-pointer">
+          Continue
+        </Button>
       </div>
     </form>
   );

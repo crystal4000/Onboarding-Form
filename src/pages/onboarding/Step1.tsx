@@ -188,7 +188,9 @@ export default function Step1() {
       </div>
 
       <div className="flex justify-end mt-8">
-        <Button type="submit">Continue</Button>
+        <Button type="submit" className="cursor-pointer">
+          Continue
+        </Button>
       </div>
     </form>
   );

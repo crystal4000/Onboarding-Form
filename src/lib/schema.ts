@@ -31,5 +31,27 @@ export const step2Schema = z
     path: ["budgetMin"],
   });
 
+export const step3Schema = z
+  .object({
+    contactMethod: z.enum(["email", "phone", "whatsapp"], {
+      message: "Please select a contact method",
+    }),
+    addressLine1: z.string().min(1, "Address is required"),
+    city: z.string().min(1, "City is required"),
+    postalCode: z.string().min(1, "Postal code is required"),
+    testDriveDateTime: z.string().optional(),
+  })
+  .refine(
+    (data) => {
+      if (!data.testDriveDateTime) return true;
+      return new Date(data.testDriveDateTime) > new Date();
+    },
+    {
+      message: "Test drive date must be in the future",
+      path: ["testDriveDateTime"],
+    },
+  );
+
+export type Step3Data = z.infer<typeof step3Schema>;
 export type Step2Data = z.infer<typeof step2Schema>;
 export type Step1Data = z.infer<typeof step1Schema>;
