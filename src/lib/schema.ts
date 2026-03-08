@@ -1,11 +1,11 @@
 import { z } from "zod";
 
 export const step1Schema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email"),
+  firstName: z.string().min(2, { error: "First name must be at least 2 characters" }),
+  lastName: z.string().min(2, { error: "Last name must be at least 2 characters" }),
+  email: z.string().email({ error: "Please enter a valid email" }),
   phone: z.string().optional(),
-  country: z.string().min(1, "Please select a country"),
+  country: z.string().min(1, { error: "Please select a country" }),
 });
 
 export const step2Schema = z
@@ -16,8 +16,8 @@ export const step2Schema = z
     vehicleType: z.enum(["ev", "hybrid", "gas", "unsure"], {
       message: "Please select a vehicle type",
     }),
-    budgetMin: z.coerce.number().min(1, "Budget minimum is required"),
-    budgetMax: z.coerce.number().min(1, "Budget maximum is required"),
+    budgetMin: z.coerce.number().min(1, { error: "Budget minimum is required" }),
+    budgetMax: z.coerce.number().min(1, { error: "Budget maximum is required" }),
     creditScoreRange: z
       .enum(["poor", "fair", "good", "very_good", "exceptional"])
       .optional(),
@@ -36,9 +36,9 @@ export const step3Schema = z
     contactMethod: z.enum(["email", "phone", "whatsapp"], {
       message: "Please select a contact method",
     }),
-    addressLine1: z.string().min(1, "Address is required"),
-    city: z.string().min(1, "City is required"),
-    postalCode: z.string().min(1, "Postal code is required"),
+    addressLine1: z.string().min(1, { error: "Address is required" }),
+    city: z.string().min(1, { error: "City is required" }),
+    postalCode: z.string().min(1, { error: "Postal code is required" }),
     testDriveDateTime: z.string().optional(),
   })
   .refine(
