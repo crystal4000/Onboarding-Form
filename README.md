@@ -23,7 +23,7 @@ Runs at `http://localhost:5173`.
 
 ## Time Spent
 
-~6 hours
+~3 hours
 
 ## Known Trade-offs
 
