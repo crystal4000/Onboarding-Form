@@ -1,7 +1,9 @@
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Stepper from "@/components/Stepper";
-import { Outlet } from "react-router-dom";
 import SaveIndicator from "@/components/SaveIndicator";
 import StepTransition from "@/components/StepTransition";
+import { useFormStore } from "@/store/formStore";
 
 const STEPS = [
   { number: 1, label: "Personal Info" },
@@ -11,6 +13,14 @@ const STEPS = [
 ];
 
 export default function OnboardingLayout() {
+  const location = useLocation();
+  const { setStep } = useFormStore();
+
+  useEffect(() => {
+    const stepNumber = parseInt(location.pathname.split("/").pop() ?? "1");
+    if (!isNaN(stepNumber)) setStep(stepNumber);
+  }, [location.pathname, setStep]);
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center py-12 px-4">
       <div className="w-full max-w-2xl">
