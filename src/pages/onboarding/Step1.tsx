@@ -156,7 +156,11 @@ export default function Step1() {
                 value={field.value}
                 onValueChange={(val) => field.onChange(val)}
               >
-                <SelectTrigger id="country" aria-invalid={!!errors.country}>
+                <SelectTrigger
+                  id="country"
+                  className="w-full"
+                  aria-invalid={!!errors.country}
+                >
                   <SelectValue placeholder="Select a country" />
                 </SelectTrigger>
                 <SelectContent>
