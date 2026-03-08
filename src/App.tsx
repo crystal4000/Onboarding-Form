@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import OnBoardingLayout from "@/pages/onboarding/OnBoardingLayout";
+import Step1 from "@/pages/onboarding/Step1";
+import Step2 from "@/pages/onboarding/Step2";
+import Step3 from "@/pages/onboarding/Step3";
+import Step4 from "@/pages/onboarding/Step4";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/onboarding" element={<OnBoardingLayout />}>
+          <Route index element={<Navigate to="1" replace />} />
+          <Route path="1" element={<Step1 />} />
+          <Route path="2" element={<Step2 />} />
+          <Route path="3" element={<Step3 />} />
+          <Route path="4" element={<Step4 />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/onboarding/1" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
