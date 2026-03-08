@@ -1,5 +1,7 @@
-import Stepper from "@/components/stepper/Stepper";
+import Stepper from "@/components/Stepper";
 import { Outlet } from "react-router-dom";
+import SaveIndicator from "@/components/SaveIndicator";
+import StepTransition from "@/components/StepTransition";
 
 const STEPS = [
   { number: 1, label: "Personal Info" },
@@ -12,15 +14,18 @@ export default function OnboardingLayout() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center py-12 px-4">
       <div className="w-full max-w-2xl">
-        <h1 className="text-2xl font-semibold text-slate-900 mb-2">
-          Get Started
-        </h1>
+        <div className="flex items-center justify-between mb-2">
+          <h1 className="text-2xl font-semibold text-slate-900">Get Started</h1>
+          <SaveIndicator />
+        </div>
         <p className="text-slate-500 mb-8">
           Complete the steps below to set up your profile.
         </p>
         <Stepper steps={STEPS} />
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mt-8">
-          <Outlet />
+          <StepTransition>
+            <Outlet />
+          </StepTransition>
         </div>
       </div>
     </div>
